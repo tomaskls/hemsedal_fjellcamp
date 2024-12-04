@@ -4,12 +4,24 @@ import React from "react";
 
 const cardData = [
   {
-    src: "/images/KAT_6791.jpg",
-    title: "Overnatting",
+    src: "/images/2023-06-09.jpg",
+    title: "Aktivitetar",
   },
   {
-    src: "/images/2024-07-11.jpg",
-    title: "Campingplassen",
+    src: "/images/2023-06-09.jpg",
+    title: "Aktivitetar",
+  },
+  {
+    src: "/images/2023-06-09.jpg",
+    title: "Aktivitetar",
+  },
+  {
+    src: "/images/2023-06-09.jpg",
+    title: "Aktivitetar",
+  },
+  {
+    src: "/images/2023-06-09.jpg",
+    title: "Aktivitetar",
   },
   {
     src: "/images/2023-06-09.jpg",
@@ -19,7 +31,7 @@ const cardData = [
 ];
 
 
-    export default function InfoCard() {
+    export default function AktCard() {
       return (
         <div className="mt-20 flex flex-wrap justify-around gap-4">
           {cardData.map((item, index) => (

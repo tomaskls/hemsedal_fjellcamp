@@ -1,9 +1,16 @@
+import AktCard from "@/components/cards/aktCard";
 import { title } from "@/components/primitives";
+import React from "react";
 
-export default function BlogPage() {
+
+export default function Aktivitetar() {
   return (
     <div>
-      <h1 className={title()}>Blog</h1>
+    <div className="flex justify-center">
+      <h1 className={title()}>Opplevelsar i Hemsedal</h1>
+    </div>
+
+    <AktCard />
     </div>
   );
 }

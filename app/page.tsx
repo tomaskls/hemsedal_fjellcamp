@@ -1,4 +1,3 @@
-"use client"
 import InfoCard from "@/components/cards/card";
 import React from "react";
 
@@ -10,7 +9,7 @@ export default function Home() {
           className="absolute  inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/2022-06-16.jpg')" }}
         >
-          <div className="absolute inset-0 "></div>
+          <div className="absolute inset-0 bg-black/20 "></div>
 
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="text-center px-4">
