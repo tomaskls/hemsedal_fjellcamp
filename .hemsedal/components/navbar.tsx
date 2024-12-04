@@ -1,22 +1,25 @@
 "use client"
 import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import { ThemeSwitch } from "./theme-switch";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    "Om",
-    "Overnatting",
-    "Campingplassen",
-    "Aktivitetar",
-    "Kontakt oss",
-    "Aktivitetar",
-   
+    { name: "Om", href: "/" },
+    { name: "Overnatting", href: "/overnatting" },
+    { name: "Campingplassen", href: "/campingplassen" },
+    { name: "Aktivitetar", href: "/aktivitetar" },
+    { name: "Kontakt oss", href: "/kontakt" }
   ];
 
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false); // Uždarome mobilų meniu paspaudus nuorodą
+  };
+
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -35,25 +38,28 @@ export default function Header() {
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
+          <Link href="/overnatting" aria-current="page">
           Overnatting
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/campingplassen">
           Campingplassen
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/aktivitetar">
           Aktivitetar
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/kontakt-oss">
           Kontakt oss
           </Link>
         </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="end" >
+        <ThemeSwitch />
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
@@ -70,10 +76,11 @@ export default function Header() {
                 index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
               }
               className="w-full"
-              href="#"
+              href={item.href}
               size="lg"
+              onClick={handleMenuItemClick} // Pridedame click event handler
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}
