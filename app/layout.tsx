@@ -3,29 +3,21 @@ import { Metadata, Viewport } from "next";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import React from "react";
+import { siteConfig } from "@/config/site";
 import { Providers } from "./providers";
 import { fontSans } from "@/config/fonts";
 import Header from "@/components/navbar";
 
 export const metadata: Metadata = {
-  title: "Hemsedal Fjellcamp",
-  description: "Hemsedal Fjellcamp - Camping and accommodation",
-  icons: "/favicon.ico",
-  openGraph: {
-    title: 'Hemsedal Fjellcamp',
-    description: 'Hemsedal Fjellcamp - Camping and accommodation', 
-    url: 'https://hemsedal-fjellcamp.vercel.app/',
-    siteName: 'Neringos Siuvimo Studija',
-    type: 'website',
-    images: [
-      {
-        url: 'https://hemsedal-fjellcamp.vercel.app/images/223.png',
-        width: 900,
-        height: 506,
-      },
-    ]
-  }
-};
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  icons: {
+    icon: "/favicon.ico",
+  },
+}
 
 export const viewport: Viewport = {
   themeColor: [
